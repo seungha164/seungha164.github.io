@@ -11,54 +11,63 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* **Ph.D. in Electrical Engineering** (major: Computer Engineering), Korea University, Seoul, Korea
+  * Mar. 2026 – Present
+  * Advisor: Prof. Jin Tae Kwak
+* **M.S. in Computer Science**, Kyonggi University, Suwon, Korea
+  * Mar. 2024 – Feb. 2026
+  * Advisor: Prof. Byoung-Dai Lee
+  * GPA: 4.33 / 4.5
+* **B.S. in Computer Engineering**, Kyonggi University, Suwon, Korea
+  * Mar. 2020 – Feb. 2024
+  * GPA: 4.1 / 4.5
 
-Work experience
+Research Interests
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* Computer Vision
+* Medical Deep Learning
+* Multi-modality (Text–Image)
+* Vision Foundation Models
+* Image Segmentation / Object Detection
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
+Experience
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* **Quantitative Imaging & Informatics (QuIIL) Lab**, Korea University, Seoul, Korea
+  * Feb. 2026 – Present
+* **Medical Deep Learning Lab (ACS)**, Kyonggi University, Suwon, Korea
+  * Jun. 2022 – Jan. 2026
+* **ML/DL Research Intern**, VisualSyn, Seoul, Korea
+  * Oct. 2023 – Sep. 2024
+  * Deployed and optimized deep learning models on the web using ONNX and WebGPU
+* **Research Trainee**, Electronics and Telecommunications Research Institute (ETRI), Daejeon, Korea
+  * Jul. 2023 – Aug. 2023
+  * Developed models for fall detection in CCTV video
 
 Publications
 ======
-  <ul>{% for post in site.publications reversed %}
+{% for category in site.publication_category %}
+**{{ category[1].title }}**
+  <ul>{% for post in site.publications reversed %}{% if post.category == category[0] %}
     {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
+  {% endif %}{% endfor %}</ul>
+{% endfor %}
+
+Awards
 ======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
+* **2nd Place**, AIMS-TBI 2026 Challenge, MICCAI 2026 (Oct. 2026)
+* **Outstanding Paper Award**, APIC-IST 2025 (2025)
+* **Bronze Prize**, Open-Source SW Developer Contest, Ministry of Science and ICT (Dec. 2023)
+* **2nd Place**, Kyonggi University Software-Industry Collaboration Competition (Nov. 2023)
+* **1st Place**, Kyonggi University Capstone Design Competition (Jun. 2023)
+
+Scholarships
 ======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
+* **KGU Scholarship (Type A)**, recommended by Kyonggi University (Fall 2023)
+* **KGU Scholarship (Type B)**, recommended by Kyonggi University (Spring 2023)
+* **Academic Excellence Scholarship**, Kyonggi University (Fall 2022): 1st place in academic performance
+* **Academic Excellence Scholarship**, Kyonggi University (Spring 2022): top 15% of students
+
+Technical Skills
 ======
-* Currently signed in to 43 different slack teams
+* **Programming languages**: Python, Java, C
+* **Deep learning frameworks**: PyTorch, TensorFlow, Keras

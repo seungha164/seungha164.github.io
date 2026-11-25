@@ -24,3 +24,6 @@ package-lock.json
 
 # Ignore the main.min.js since it should be built as part of jekyll-build.yml
 assets/js/main.min.js
+
+# Original photo (contains GPS location metadata) - do not publish
+photo.jpeg
