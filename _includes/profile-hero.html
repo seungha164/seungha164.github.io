@@ -2,30 +2,36 @@
 {% assign author = site.author %}
 {% assign hero = page.hero %}
 
+{% capture links %}
+  {% if author.email %}mailto:{{ author.email }}|fas fa-envelope|Email;{% endif %}
+  {{ base_path }}/cv/|fas fa-file-lines|CV;
+  {% if author.googlescholar %}{{ author.googlescholar }}|ai ai-google-scholar|Google Scholar;{% endif %}
+  {% if author.github %}https://github.com/{{ author.github }}|fab fa-github|GitHub;{% endif %}
+  {% if author.linkedin %}https://www.linkedin.com/in/{{ author.linkedin }}|fab fa-linkedin-in|LinkedIn;{% endif %}
+  {% if author.orcid %}{{ author.orcid }}|ai ai-orcid|ORCID;{% endif %}
+{% endcapture %}
+{% assign links = links | strip_newlines | split: ";" %}
+
 <header class="hero">
   <div class="hero__text">
     {% if hero.eyebrow %}<p class="hero__eyebrow">{{ hero.eyebrow }}</p>{% endif %}
     <h1 class="hero__name" itemprop="name">{{ author.name }}</h1>
-    {% if hero.intro %}<div class="hero__intro">{{ hero.intro | markdownify }}</div>{% endif %}
 
     <ul class="hero__links">
-      {% if author.email %}
-        <li><a class="hero__btn" href="mailto:{{ author.email }}"><i class="fas fa-envelope" aria-hidden="true"></i>Email</a></li>
-      {% endif %}
-      <li><a class="hero__btn" href="{{ base_path }}/cv/"><i class="fas fa-file-lines" aria-hidden="true"></i>CV</a></li>
-      {% if author.googlescholar %}
-        <li><a class="hero__btn" href="{{ author.googlescholar }}"><i class="ai ai-google-scholar" aria-hidden="true"></i>Scholar</a></li>
-      {% endif %}
-      {% if author.github %}
-        <li><a class="hero__btn" href="https://github.com/{{ author.github }}"><i class="fab fa-github" aria-hidden="true"></i>GitHub</a></li>
-      {% endif %}
-      {% if author.linkedin %}
-        <li><a class="hero__btn" href="https://www.linkedin.com/in/{{ author.linkedin }}"><i class="fab fa-linkedin" aria-hidden="true"></i>LinkedIn</a></li>
-      {% endif %}
-      {% if author.orcid %}
-        <li><a class="hero__btn" href="{{ author.orcid }}"><i class="ai ai-orcid" aria-hidden="true"></i>ORCID</a></li>
-      {% endif %}
+      {% for link in links %}
+        {% assign parts = link | strip | split: "|" %}
+        {% if parts.size == 3 %}
+        <li>
+          <a class="hero__btn" href="{{ parts[0] }}" aria-label="{{ parts[2] }}">
+            <i class="{{ parts[1] }}" aria-hidden="true"></i>
+            <span class="hero__tip" aria-hidden="true">{{ parts[2] }}</span>
+          </a>
+        </li>
+        {% endif %}
+      {% endfor %}
     </ul>
+
+    {% if hero.intro %}<div class="hero__intro">{{ hero.intro | markdownify }}</div>{% endif %}
   </div>
 
   {% if hero.photo %}

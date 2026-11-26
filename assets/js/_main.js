@@ -14,6 +14,9 @@ const browserPref = window.matchMedia && window.matchMedia('(prefers-color-schem
 
 // Determine the computed theme, which can be "dark" or "light".
 function determineComputedTheme() {
+  // Dark mode is disabled for this site: always use the light theme.
+  return "light";
+
   // Determine the expected state of the theme toggle, which can be "dark", "light", or default "system"
   let themeSetting = localStorage.getItem("theme");
   themeSetting = (themeSetting != "dark" && themeSetting != "light" && themeSetting != "system") ? "system" : themeSetting;
@@ -152,16 +155,8 @@ $(document).ready(function () {
   const scssMastheadHeight = 70;  // pixels, from the current theme (e.g., /_sass/theme/_default.scss)
 
   // If the user hasn't chosen a theme, follow the OS preference
-  setTheme();
-  window.matchMedia('(prefers-color-scheme: dark)')
-        .addEventListener("change", (e) => {
-          if (!localStorage.getItem("theme")) {
-            setTheme(e.matches ? "dark" : "light");
-          }
-        });
-
-  // Enable the theme toggle
-  $('#theme-toggle').on('click', toggleTheme);
+  // Dark mode is disabled: always render the light theme
+  setTheme("light");
 
   // Enable the sticky footer
   var bumpIt = function () {

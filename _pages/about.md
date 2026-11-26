@@ -10,7 +10,6 @@ redirect_from:
 # Profile block at the top of the home page.
 # Name and links (email, GitHub, LinkedIn, Scholar...) come from _config.yml.
 hero:
-  eyebrow: "Ph.D. Student · Korea University"
   photo: "profile-hero.jpg"
   intro: |
     I am a Ph.D. student in Electrical Engineering at **Korea University**, advised by Prof. Jin Tae Kwak in the Quantitative Imaging & Informatics (QuIIL) Lab.
