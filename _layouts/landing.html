@@ -1,0 +1,17 @@
+---
+layout: default
+---
+{% comment %}
+  Home page layout: no left sidebar. The profile (hero) sits in the
+  center column, followed by the page's Markdown content.
+{% endcomment %}
+
+<div id="main" role="main" class="landing">
+  <article class="landing__page" itemscope itemtype="http://schema.org/Person">
+    {% include profile-hero.html %}
+
+    <section class="page__content landing__content" itemprop="text">
+      {{ content }}
+    </section>
+  </article>
+</div>

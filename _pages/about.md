@@ -1,16 +1,23 @@
 ---
 permalink: /
-title: "About Me"
-author_profile: true
+title: "Seungha Noh"
+layout: landing
+author_profile: false
 redirect_from: 
   - /about/
   - /about.html
+
+# Profile block at the top of the home page.
+# Name and links (email, GitHub, LinkedIn, Scholar...) come from _config.yml.
+hero:
+  eyebrow: "Ph.D. Student · Korea University"
+  photo: "profile-hero.jpg"
+  intro: |
+    I am a Ph.D. student in Electrical Engineering at **Korea University**, advised by Prof. Jin Tae Kwak in the Quantitative Imaging & Informatics (QuIIL) Lab.
+    My research focuses on deep learning for medical imaging, especially segmentation and detection models that hold up in real clinical settings.
+
+    Previously, I received my M.S. and B.S. from **Kyonggi University**, where I worked in the Medical Deep Learning Lab under Prof. Byoung-Dai Lee.
 ---
-
-I am a Ph.D. student in Electrical Engineering (major: Computer Engineering) at **Korea University**, advised by Prof. Jin Tae Kwak in the Quantitative Imaging & Informatics (QuIIL) Lab.
-Before that, I received my M.S. in Computer Science and my B.S. in Computer Engineering from **Kyonggi University**, where I worked in the Medical Deep Learning Lab under Prof. Byoung-Dai Lee.
-
-My research focuses on deep learning for medical imaging, especially building segmentation and detection models that hold up in real clinical settings.
 
 Research Interests
 ======
