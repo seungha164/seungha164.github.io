@@ -1,0 +1,49 @@
+{% include base_path %}
+{% comment %}
+  Publication list for the home page.
+  Shows papers with `show_on_home: true`, newest first.
+  Per-paper fields (in _publications/*.md):
+    thumbnail   – image path (falls back to nothing if missing)
+    authors     – author list; the site author's name is shown in bold
+    venue_short – short venue label, e.g. "CVPRW 2024"
+    award       – optional highlight line
+    paperurl    – Paper button link (falls back to the paper's page on this site)
+    codeurl     – GitHub button link (button hidden when empty)
+{% endcomment %}
+
+{% assign me = site.author.name %}
+{% capture me_bold %}<b>{{ me }}</b>{% endcapture %}
+{% assign pubs = site.publications | where_exp: "p", "p.show_on_home != false" | sort: "date" | reverse %}
+
+<div class="pub-list">
+  {% for pub in pubs %}
+  {% capture paper_link %}{% if pub.paperurl and pub.paperurl != "" %}{{ pub.paperurl }}{% else %}{{ base_path }}{{ pub.url }}{% endif %}{% endcapture %}
+  <article class="pub">
+    {% if pub.thumbnail %}
+    <a class="pub__thumb" href="{{ paper_link }}">
+      <img src="{{ base_path }}{{ pub.thumbnail }}" alt="" loading="lazy">
+    </a>
+    {% endif %}
+
+    <div class="pub__body">
+      <h3 class="pub__title"><a href="{{ paper_link }}">{{ pub.title }}</a></h3>
+      {% if pub.authors %}
+        <p class="pub__authors">{{ pub.authors | replace: me, me_bold }}</p>
+      {% endif %}
+      {% if pub.award %}
+        <p class="pub__award"><i class="fas fa-award" aria-hidden="true"></i>{{ pub.award }}</p>
+      {% endif %}
+
+      <div class="pub__meta">
+        <span class="pub__venue">{{ pub.venue_short | default: pub.venue }}</span>
+        <a class="pub__btn" href="{{ paper_link }}"><i class="fas fa-file-lines" aria-hidden="true"></i>Paper</a>
+        {% if pub.codeurl and pub.codeurl != "" %}
+          <a class="pub__btn" href="{{ pub.codeurl }}"><i class="fab fa-github" aria-hidden="true"></i>GitHub</a>
+        {% endif %}
+      </div>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+
+<p class="pub-more"><a href="{{ base_path }}/publications/">See all publications <i class="fas fa-arrow-right" aria-hidden="true"></i></a></p>

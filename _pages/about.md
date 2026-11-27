@@ -34,3 +34,7 @@ News
 - **[2025]** Received the **Outstanding Paper Award** at APIC-IST 2025.
 - **[2025]** Papers published in **Scientific Reports** and **Quantitative Imaging in Medicine and Surgery**.
 - **[2024]** One paper published at **CVPR Workshops 2024**.
+
+Publications
+======
+{% include home-publications.html %}
